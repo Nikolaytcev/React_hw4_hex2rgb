@@ -9,7 +9,7 @@ export function validateHex(value: string) {
         }
         else {
             return false
-        };
+        }
     }
     else {
         return false
