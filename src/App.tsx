@@ -5,15 +5,19 @@ import { validateHex } from './validate';
 
 function App() {
 
-  let [name, setColor] = useState<string>('#000000');
+  interface Iname {
+    name: string
+  }
 
-  let validate = useRef<number[] | false>([]);
+  const [, setColor] = useState<Iname>({name: '#000000'});
+
+  const validate = useRef<number[] | false>([]);
 
   const handleChangeColor = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     if (value.length >= 7) {
       validate.current = validateHex(value);
-      setColor(() => (name = value));
+      setColor(() => ({name: value}));
     }
   }
 
